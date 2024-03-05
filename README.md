@@ -6,6 +6,12 @@ This repository is part of our response to the Metropolitan Transportation Autho
 
 Utilizing NextJS, Firestore, NodeJS, and React, our application demonstrates capabilities crucial for the MTA's objectives, including authentication, real-time data storage, responsive web design, and adherence to web development best practices.
 
+## Interactive Demo:
+https://colorfuldots.com/dashboard
+
+- Please use your credentials found in the RFI response package. 
+- Note: The dashboard access and public repo will be available for 30 days.
+
 ### Key Features
 
 - **Authentication**: Robust security for user roles, ensuring secure access for MTA staff, employees, and union representatives.
