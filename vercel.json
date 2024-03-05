@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "github": {
+    "enabled": true
+  },
+  "redirects": [
+    {
+      "source": "/privacy-policy",
+      "destination": "/legal/privacy-policy",
+      "permanent": true
+    },
+    {
+      "source": "/agencies/new-york/government",
+      "destination": "/agencies/ny/government",
+      "permanent": true
+    },
+    {
+      "source": "/discounts",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/ecommerce",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/legal/terms-of-use-agreement",
+      "destination": "/legal/terms-of-use",
+      "permanent": true
+    },
+    {
+      "source": "/work/project/(.*)", 
+      "destination": "/clients/project/$1",
+      "permanent": true
+    },
+    {
+      "source": "/mobile", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/websites", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/work", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/logos", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/illustrations", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/strategy", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/branding", 
+      "destination": "/clients",
+      "permanent": true
+    },
+    {
+      "source": "/agencies/new-york/government", 
+      "destination": "/agencies/ny/government",
+      "permanent": true
+    }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
+

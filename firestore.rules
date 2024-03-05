@@ -1,0 +1,150 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Users
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+      allow delete: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+    }
+    // Accounts
+    match /accounts/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Acronyms
+    match /acronyms/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin') || hasRole('_assistant');
+      allow update: if hasRole('_admin') || hasRole('_assistant');
+      allow delete: if hasRole('_admin') || hasRole('_assistant');
+    }
+    // Applicants (jobs)
+    match /applicants/{itemId} {
+      allow read: if hasRole('_admin');
+      allow create: if true;
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Agencies
+    match /agencies/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+      allow update: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+      allow delete: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+    }
+    // Blogs
+    match /blogs/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Careers
+    match /careers/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+      allow update: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+      allow delete: if hasRole('_admin') || hasRole('_assistant') || hasRole('_staffing');
+    }
+    // Clients
+    match /clients/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Contacts (Inbox)
+    match /contacts/{itemId} {
+      allow read: if hasRole('_admin');
+      allow create: if true;
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Contracts 
+    match /contracts/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Contributions
+    match /contributions/{itemId} {
+      allow read: if hasRole('_admin');
+      allow create: if true;
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Faqs 
+    match /faqs/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Glossaries 
+    match /glossaries/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin') || hasRole('_assistant');
+      allow update: if hasRole('_admin') || hasRole('_assistant');
+      allow delete: if hasRole('_admin') || hasRole('_assistant');
+    }
+    // Leads (services / technologies contacts)
+    match /leads/{itemId} {
+      allow read: if hasRole('_admin');
+      allow create: if true;
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Legals 
+    match /legals/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Partnerships 
+    match /partnerships/{itemId} {
+      allow read: if hasRole('_admin');
+      allow create: if true;
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Services 
+    match /services/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Tags 
+    match /tags/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+    // Technologies 
+    match /technologies/{itemId} {
+      allow read: if true;
+      allow create: if hasRole('_admin');
+      allow update: if hasRole('_admin');
+      allow delete: if hasRole('_admin');
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function hasRole(role) {
+      return isSignedIn() && getRoles()[role] == true;
+    }
+
+    function getRoles() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
+    }
+  }
+}

@@ -1,0 +1,17 @@
+/* TEAM */ 
+CEO: Eric David Smith
+Email: eric@colorfuldots.com
+Twitter: @erictherobot 
+Location: Brooklyn, NY, USA 
+Website: https://colorfuldots.com
+Blog: https://colorfuldots.com/blog
+Careers: https://colorfuldots.com/careers
+Legal: https://colorfuldots.com/legal
+
+/* SITE */ 
+Last update: 04/04/2021
+Standards: Yes, we have them
+Components: Handmade
+Software: Open Source 
+Twitter: @colorfuldotsHQ 
+Instagram: @colorfuldotsHQ 
